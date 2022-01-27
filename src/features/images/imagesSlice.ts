@@ -3,6 +3,8 @@ import { RootState } from "../../app/store";
 
 const BASE_URL = "https://www.reddit.com/user/axschech/m/sfwporn/hot.json?limit=1000";
 
+const BASE_REDDIT_URL = 'https://reddit.com'
+
 export interface Data {
     data: Image
 }
@@ -13,6 +15,12 @@ export interface Image {
     id: string;
     author: string;
     subreddit: string;
+    permalink: string;
+}
+
+// should this be done in selector?
+export const makePermalink = (url: string): string => {
+    return `${BASE_REDDIT_URL}${url}`;
 }
 
 // should i be doing this???
